@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  angularapp: my-second-image
+    image: 
+    ports:
+      - "4200:4200"
+    networks:
+      - mynetwork
+
+  webapi:
+    image: my-first-image
+    ports:
+      - "50306:50306"
+    networks:
+      - mynetwork
+    depends_on:
+      - angularapp
+
+  sqlserver:
+    image: my-third-image
+    ports:
+      - 8002:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=password@12345#
+    networks:
+      - mynetwork
+    depends_on:
+      - webapi
+    volumes:
+      - sql_data:/var/opt/mssql
+
+networks:
+  mynetwork:
+    driver: bridge
+
+volumes:
+  sql_data:
