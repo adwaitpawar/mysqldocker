@@ -11,7 +11,7 @@ services:
   webapi:
     image: my-first-image
     ports:
-      - "50306:50306"
+      - "8009:50306"
     networks:
       - mynetwork
     depends_on:
