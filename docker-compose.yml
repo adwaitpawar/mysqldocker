@@ -4,7 +4,7 @@ services:
   angularapp: 
     image: my-second-image
     ports:
-      - "4200:4200"
+      - "4201:4200"
     networks:
       - mynetwork
 
