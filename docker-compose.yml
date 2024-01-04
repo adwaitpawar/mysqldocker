@@ -1,8 +1,8 @@
 version: '3.8'
 
 services:
-  angularapp: my-second-image
-    image: 
+  angularapp: 
+    image: my-second-image
     ports:
       - "4200:4200"
     networks:
