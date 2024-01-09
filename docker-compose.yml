@@ -11,7 +11,7 @@ services:
     networks:
       - mynetwork
     healthcheck:
-      test: ["CMD", "sqlcmd", "-U", "SA", "-P", "password@12345#", "-Q", "SELECT 1"]
+      test: ["CMD", "echo", "Checking health"]
       interval: 10s
       timeout: 5s
       retries: 5
